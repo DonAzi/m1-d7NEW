@@ -12,6 +12,7 @@ EX6: Add a message board where the user can type a message in it (no real postin
 EX7: Write a function to change the h1 text to something else
 EX8: Write a function to change the page background color
 EX9: Write a function to change the footer address with a fake one
+
 EX10: Write a function to add a CSS class to every Amazon link
 
 
@@ -62,9 +63,8 @@ EX12: Write a function to color the price of the products in a different one eve
         margin-left: 20px;
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       }
-      /* .visibility {
-        visibility: hidden;
-      } */
+      .visibility {
+      }
     </style>
   </head>
   <body>
@@ -209,12 +209,28 @@ EX12: Write a function to color the price of the products in a different one eve
       //   EX11: Write a function to toggle a CSS class for all the images in the table; that class should set the visibility of the image
       function changeVisib() {
         let imgNodes = document.querySelectorAll("img");
-        for (let imge of imgNodes) {
-          imgeNodes.classList.toggle(".visibility").style.visibility = "hidden";
+        for (let i = 0; i < imgNodes.length; i++) {
+          imgNodes[i].classList.toggle("hidden");
         }
       }
+      /////////////////==========//////// EX12: Write a function to color the price of the products in a different one every time it's invoked
 
-      // EX12: Write a function to color the price of the products in a different one every time it's invoked
+      const getRandomColor = function () {
+        const red = Math.round(Math.random() * 255);
+        const green = Math.round(Math.random() * 255);
+        const blue = Math.round(Math.random() * 255);
+
+        return "rgb(" + red + ", " + green + ", " + blue + ")";
+      };
+      const setRandomColor = function () {
+        const randomColor = getRandomColor();
+        let prices = document.querySelectorAll(".price");
+        for (let i = 0; i < prices.length; i++) {
+          let singlePrince = prices[i];
+          singlePrince.style.color = randomColor;
+        }
+      };
+      setRandomColor();
     </script>
   </body>
 </html>
