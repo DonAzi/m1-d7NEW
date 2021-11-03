@@ -222,12 +222,13 @@ EX12: Write a function to color the price of the products in a different one eve
 
         return "rgb(" + red + ", " + green + ", " + blue + ")";
       };
+
       const setRandomColor = function () {
         const randomColor = getRandomColor();
         let prices = document.querySelectorAll(".price");
         for (let i = 0; i < prices.length; i++) {
-          let singlePrince = prices[i];
-          singlePrince.style.color = randomColor;
+          let singlePrice = prices[i];
+          singlePrice.style.color = randomColor;
         }
       };
       setRandomColor();
